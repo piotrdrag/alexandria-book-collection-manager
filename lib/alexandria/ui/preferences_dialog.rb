@@ -147,7 +147,7 @@ module Alexandria
         # New Enable/Disable pop-up menu...
         @enable_disable_providers_menu = Gtk::Menu.new
         @enable_item = Gtk::MenuItem.new_with_label(_("Disable Provider"))
-        @enable_item.signal_connect("activate") {
+        @enable_item.signal_connect("activate") do
           prov = selected_provider
           prov.toggle_enabled
           adjust_selected_provider(prov)
@@ -182,7 +182,7 @@ module Alexandria
         end
 
         # Popup the menu on Shift-F10
-        @treeview_providers.signal_connect("popup-menu") {
+        @treeview_providers.signal_connect("popup-menu") do
           selected_prov = @treeview_providers.selection.selected
           puts selected_prov.inspect
           if selected_prov
